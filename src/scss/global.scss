@@ -1,12 +1,12 @@
 .example {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    &__title {
-        font-size: 80px;
-        font-weight: 700;
-        
-        color: green
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  &__title {
+    font-size: 80px;
+    font-weight: 700;
+
+    color: green;
+  }
 }
