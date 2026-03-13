@@ -1,40 +1,29 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./scss/style.scss" />
-  </head>
-  <body>
-    <section class="calculator">
-      <div class="container">
-        <h1 class="calculator__title">Калькулятор</h1>
-        <ul class="calculator__list">
-          <li class="calculator__item">
-            <input type="number" class="calculator__first--number" placeholder="Введіть число" />
-          </li>
-          <li class="calculator__item">
-            <ul class="calculator__operators">
-              <li class="calculator__operator">+</li>
-              <li class="calculator__operator">*</li>
-              <li class="calculator__operator">-</li>
-              <li class="calculator__operator">/</li>
-            </ul>
-          </li>
-          <li class="calculator__item">
-            <input type="number" class="calculator__second--number" placeholder="Введіть число" />
-          </li>
-          <li class="calculator__item">
-            <button class="calculator__button--equal">=</button>
-          </li>
-          <li class="calculator__item">
-            <input type="text" class="calculator__result" placeholder="Результат" />
-          </li>
+<section class="calculator">
+  <div class="container">
+    <h1 class="calculator__title">Калькулятор</h1>
+    <ul class="calculator__list">
+      <li class="calculator__item">
+        <input type="number" class="calculator__first--number" placeholder="Введіть число" />
+      </li>
+      <li class="calculator__item">
+        <ul class="calculator__operators">
+          <li id="add-btn" class="calculator__operator">+</li>
+          <li id="multiply-btn" class="calculator__operator">*</li>
+          <li id="subtract-btn" class="calculator__operator">-</li>
+          <li id="divide-btn" class="calculator__operator">/</li>
         </ul>
-      </div>
-      <span class="calculator__line"></span>
-    </section>
-    <script src="./js/script.js" type="module"></script>
-  </body>
-</html>
+      </li>
+      <li class="calculator__item">
+        <input type="number" class="calculator__second--number" placeholder="Введіть число" />
+      </li>
+      <li class="calculator__item">
+        <button class="calculator__button--equal">=</button>
+      </li>
+      <li class="calculator__item">
+        <h2 class="calculator__result">Результат</h2>
+      </li>
+    </ul>
+  </div>
+  <span class="calculator__line"></span>
+</section>
+<script type="module" src="./js/calculator.js"></script>

@@ -1,4 +1,4 @@
-@use '../components/base';
+@use '../components/base' as *;
 
 ul {
   list-style: none;
@@ -15,7 +15,7 @@ ul {
   background: #fff;
 
   &__title {
-    // font-family: $font-family;
+    font-family: $font-family;
     font-weight: 400;
     font-size: 16px;
     color: #000;
@@ -37,7 +37,7 @@ ul {
   &__first--number {
     border-radius: 20px;
     padding: 10px 20px;
-    // font-family: $font-family;
+    font-family: $font-family;
     font-weight: 400;
     font-size: 12px;
     color: #7e7e7e;
@@ -45,14 +45,14 @@ ul {
     background: #d7d7d7;
     border: none;
     outline: none;
-    width: 95px;
+    width: 110px;
     height: 15px;
   }
 
   &__second--number {
     border-radius: 20px;
     padding: 10px 20px;
-    // font-family: $font-family;
+    font-family: $font-family;
     font-weight: 400;
     font-size: 12px;
     color: #7e7e7e;
@@ -60,7 +60,7 @@ ul {
     background: #d7d7d7;
     border: none;
     outline: none;
-    width: 95px;
+    width: 110px;
     height: 15px;
   }
 
@@ -68,18 +68,18 @@ ul {
     border-radius: 20px;
     padding: 10px 20px;
     background: #d7d7d7;
-    // font-family: $font-family;
+    font-family: $font-family;
     font-weight: 400;
     font-size: 12px;
     color: #7e7e7e;
     border: none;
     outline: none;
-    width: 75px;
+    width: 77px;
     height: 15px;
   }
 
   &__button--equal {
-    // font-family: $font-family;
+    font-family: $font-family;
     font-weight: 400;
     font-size: 12px;
     color: #fff;
@@ -107,11 +107,12 @@ ul {
     background: #000;
     border: none;
     outline: none;
-    // font-family: $font-family;
+    font-family: $font-family;
     font-weight: 400;
     font-size: 12px;
     color: #fff;
     text-align: center;
+    transition: 0.5s;
   }
 
   &__line {
@@ -121,4 +122,9 @@ ul {
     background-color: #000;
     justify-self: center;
   }
+}
+
+.select {
+  background: #d7d7d7;
+  color: #7e7e7e;
 }
