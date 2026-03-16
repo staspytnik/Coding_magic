@@ -77,5 +77,5 @@ equalBtn.addEventListener('click', (event) => {
     result = divide
   }
 
-  resultText.textContent = result
+  resultText.textContent = result.toFixed(5)
 })
