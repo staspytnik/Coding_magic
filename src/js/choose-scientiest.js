@@ -98,3 +98,4 @@ const renderScientiestList = (scientistsList) => {
 }
 
 renderScientiestList(scientists)
+
