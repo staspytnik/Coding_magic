@@ -33,8 +33,12 @@
         color: #000;
     }
 
-    &__button--list {
+    &__buttons--list {
         list-style-type: none;
+        display: grid;
+        // justify-items: center;
+        gap: 36px 20px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     &__button {

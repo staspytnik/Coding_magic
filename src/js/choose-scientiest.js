@@ -99,3 +99,29 @@ const renderScientiestList = (scientistsList) => {
 
 renderScientiestList(scientists)
 
+const buttons = document.querySelectorAll('.scientiest__button')
+const firstButtom = buttons[0]
+
+// firstButtom.addEventListener ('click', (e) => {
+//     const isNineteenthCentury = scientists.filter(scientist => scientist.born >= 1801 && scientist.born <= 1900)
+
+// })
+
+//2
+
+const secondButton = buttons[1]
+secondButton.addEventListener('click', (e) => {
+    const albertBirthYear = scientists.find(scientist => scientist.name === 'Albert' && scientist.surname === 'Einstein')
+    alert(`Альберт Енштейн народився в ${albertBirthYear.born} році`)
+})
+
+//3
+
+const thirdButton = buttons[2]
+thirdButton.addEventListener('click', (e) => {
+    // const res = [...scientists].sort((a, b) => a.name.localeCompare(b.name))
+    const sort = scientists.forEach(scientists => {
+        [...scientists].sort((a, b) => a.name.localeCompare(b.name))
+    })
+})
+
