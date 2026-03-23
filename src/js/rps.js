@@ -17,6 +17,13 @@ export function rps() {
 
   userChoices.forEach((choice) => {
     choice.addEventListener('click', () => {
+      const currentSelected = document.querySelector('.rps__choice.is-selected')
+      if (currentSelected) {
+        currentSelected.classList.remove('is-selected')
+      }
+
+      choice.classList.add('is-selected')
+
       const userPick = choice.getAttribute('data-choice')
       const compPick = choices[Math.floor(Math.random() * choices.length)]
 
