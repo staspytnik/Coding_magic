@@ -12,6 +12,7 @@
     margin: 0;
     align-items: center;
     flex-direction: row;
+    transition: 0.5s;
 
     .container {
         display: flex;
@@ -155,22 +156,25 @@
         }
     }
 
-    // &__circle {
-    //     display: flex;
-    //     width: 18px;
-    //     height: 18px;
-    //     border: 0.25px solid #000000;
-    //     background: white;
-    //     border-radius: 100%;
-    //     align-items: center;
-    //     justify-content: center;
-    // }
-
     &__settings {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 185px;
         height: 20px;
+    }
+}
+
+.dark-mode {
+    transition: 0.5s;
+
+    .header__dropdown-link:hover {
+        background: #2b2b2b;
+    }
+
+    background-color: #000000;
+
+    .header {
+        background-color: #000000;
     }
 }
