@@ -8,73 +8,70 @@ const subtractBtn = document.getElementById('subtract-btn')
 const divideBtn = document.getElementById('divide-btn')
 const equalBtn = document.querySelector('.calculator__button--equal')
 
-let firstNum = undefined
-let secondNum = undefined
+let firstNum = null
+let secondNum = null
 
-let result = undefined
+let selectedOperator = null
 
-firstNumInput.addEventListener('change', (event) => {
+firstNumInput.addEventListener('change', () => {
   firstNum = Number.parseInt(firstNumInput.value)
 })
 
-secondNumInput.addEventListener('change', (event) => {
+secondNumInput.addEventListener('change', () => {
+  if (Number.parseInt(secondNumInput.value) === 0) {
+    resultText.textContent = 'Ділення на нуль!'
+    return
+  }
   secondNum = Number.parseInt(secondNumInput.value)
 })
 
-const chooseOperator = function (button, operator) {
-  button.classList.add('select')
-  if (addBtn !== button) {
-    addBtn.classList.remove('select')
-  }
-  if (subtractBtn !== button) {
-    subtractBtn.classList.remove('select')
-  }
-  if (multiplyBtn !== button) {
-    multiplyBtn.classList.remove('select')
-  }
-  if (divideBtn !== button) {
-    divideBtn.classList.remove('select')
-  }
+const allButtons = [addBtn, subtractBtn, multiplyBtn, divideBtn]
 
-  result = operator
+const chooseOperator = function (button, operator) {
+  allButtons.forEach((btn) => btn.classList.remove('select'))
+  button.classList.add('select')
+  selectedOperator = operator
 }
 
-addBtn.addEventListener('click', (event) => {
+addBtn.addEventListener('click', () => {
   chooseOperator(addBtn, 'add')
 })
 
-multiplyBtn.addEventListener('click', (event) => {
+multiplyBtn.addEventListener('click', () => {
   chooseOperator(multiplyBtn, 'multiply')
 })
 
-subtractBtn.addEventListener('click', (event) => {
+subtractBtn.addEventListener('click', () => {
   chooseOperator(subtractBtn, 'subtract')
 })
 
-divideBtn.addEventListener('click', (event) => {
+divideBtn.addEventListener('click', () => {
   chooseOperator(divideBtn, 'divide')
 })
 
-equalBtn.addEventListener('click', (event) => {
-  const add = firstNum + secondNum
-
-  const subtract = firstNum - secondNum
-
-  const multiply = firstNum * secondNum
-
-  const divide = firstNum / secondNum
-
-  if (result === 'add') {
-    result = add
+equalBtn.addEventListener('click', () => {
+  switch (selectedOperator) {
+    case 'add':
+      result = firstNum + secondNum
+      break
+    case 'subtract':
+      result = firstNum - secondNum
+      break
+    case 'multiply':
+      result = firstNum * secondNum
+      break
+    case 'divide':
+      result = firstNum / secondNum
+      break
   }
-  if (result === 'subtract') {
-    result = subtract
+
+  if (isNaN(firstNum) || isNaN(secondNum)) {
+    resultText.textContent = 'Введіть числа'
+    return
   }
-  if (result === 'multiply') {
-    result = multiply
-  }
-  if (result === 'divide') {
-    result = divide
+  if (!selectedOperator) {
+    resultText.textContent = 'Виберіть оператор'
+    return
   }
 
   resultText.textContent = result.toFixed(5)
