@@ -21,12 +21,18 @@
         width: 720px;
         height: 220px;
         position: relative;
-    }
+        overflow: hidden;
+        margin: 0 auto;
+    }   
 
     &__ball {
+        top: 50px;
+        left: 50px;
         position: absolute;
         z-index: 1;
         border-radius: 50%;
         text-align: center;
+        transition: all 0.3s ease;
+        transform: translate(-50%, -50%);
     }
 }

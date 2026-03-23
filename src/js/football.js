@@ -1,21 +1,14 @@
-const field = document.querySelector('.football_field');
-const ball = document.querySelector('.football_ball');
+const field = document.querySelector('.football__field');
+const ball = document.querySelector('.football__ball');
 
+const ballMove = (clientX, clientY) => {
+    ball.style.left = `${clientX}px`
+    ball.style.top = `${clientY}px`
+}
 
 field.addEventListener('click', (event) => {
-    const clientX = event.clientX
-    const clientY = event.clientY
-
-    console.log(clientX, clientY);
-
-    function ballMove(clientX, clientY) {
-        ball.style.right = clientX
-        ball.style.left = clientX
-        ball.style.top = clientY
-        ball.style.bottom = clientY
-        ball.style.transition = 1;
-        return
-    }
-
-    console.log(ballMove(clientX, clientY));
+    const rect = field.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    ballMove(x, y)
 })
