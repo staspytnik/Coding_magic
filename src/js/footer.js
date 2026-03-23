@@ -1,9 +1,11 @@
 const footerInput = document.querySelector('.section__footer--subscribe-input');
 const footerButton = document.querySelector('.section__footer--subscribe-button');
 
+if (!footerInput || !footerButton) return
 function isValidEmail(email) {
     email = email.trim();
-    return email.endsWith('@gmail.com') && email !== '@gmail.com';
+    return email.includes('@' && '.');
+    return email.length > 5
 }
 
 footerButton.addEventListener('click', (e) => {
@@ -20,6 +22,6 @@ footerButton.addEventListener('click', (e) => {
             footerInput.placeholder = originalPlaceholder;
         }, 5000);
     } else {
-        console.log('Not a valid Gmail address');
+        footerInput.placeholder = 'Введіть коректну електронну адресу';
     }
 });

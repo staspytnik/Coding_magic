@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const calculateButton = document.querySelector('.section__calculatorTime--button')
   const resultDisplay = document.querySelector('.section__calculatorTime--result')
   const secretImage = document.getElementById('secretImage')
+  const secretNumber = 67
 
   let imageTimeout
 
@@ -19,7 +20,7 @@ const showSecretImage = function() {
   }
 
 const calculateTime = function(totalHours) {
-    const totalMinutes = hours * 60
+    const totalMinutes = totalHours * 60
     const days = Math.floor(totalMinutes / (24 * 60))
     const remainingMinutes = totalMinutes % (24 * 60)
     const remainingHours = Math.floor(remainingMinutes / 60)
@@ -36,7 +37,7 @@ const formatResult = function(days, hours, minutes) {
 
 const updateResult = function () {
     const inputValue = inputField.value.trim()
-    if (inputValue === '67' || inputValue === '67.0' || inputValue === '67.00') {
+    if (parseFloat(inputValue) === secretNumber) {
       showSecretImage()
     }
 
@@ -49,7 +50,7 @@ const updateResult = function () {
 
     if (isNaN(totalHours) || totalHours < 0) {
       resultDisplay.textContent = '0 дн. 00:00';
-        alert('Please enter a valid positive number');
+        alert('Будь ласка введіть коректне додатнє число');
       return
     }
     const time = calculateTime(totalHours)
@@ -58,7 +59,7 @@ const updateResult = function () {
 
   calculateButton.addEventListener('click', updateResult)
 
-  inputField.addEventListener('keypress', function (event) {
+  inputField.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
       updateResult()
     }
