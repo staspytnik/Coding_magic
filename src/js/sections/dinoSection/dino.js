@@ -20,9 +20,9 @@ const GROUND_HEIGHT = 24
 const GROUND_AND_CACTUS_SPEED = 0.5
 
 const CACTUS_CONFIG = [
-  { width: 48 / 1.5, height: 120 / 1.5, Image: '/images/dino-img/cactus_1.png' },
-  { width: 98 / 1.5, height: 120 / 1.5, Image: '/images/dino-img/cactus_2.png' },
-  { width: 68 / 1.5, height: 90 / 1.5, Image: '/images/dino-img/cactus_3.png' },
+  { width: 48 / 1.5, height: 120 / 1.5, image: '/images/dino-img/cactus_1.png' },
+  { width: 98 / 1.5, height: 120 / 1.5, image: '/images/dino-img/cactus_2.png' },
+  { width: 68 / 1.5, height: 90 / 1.5, image: '/images/dino-img/cactus_3.png' },
 ]
 
 let player = null
@@ -65,7 +65,7 @@ const createSprites = function () {
 
   const cactusImages = CACTUS_CONFIG.map((cactus) => {
     const image = new Image()
-    image.src = cactus.Image
+    image.src = cactus.image
     return {
       image: image,
       width: cactus.width * scaleRatio,
