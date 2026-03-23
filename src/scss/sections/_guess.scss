@@ -1,8 +1,9 @@
 @use '../components/base' as *;
 
 .guess {
+  font-family: $font-family;
+
   &__title {
-    font-family: $font-family;
     font-weight: 400;
     font-size: 16px;
     color: #000;
@@ -11,12 +12,11 @@
     padding-bottom: 36px;
   }
   &__answer {
-    font-family: $font-family;
     font-weight: 400;
     font-size: 12px;
     text-align: right;
     margin: 0;
-    transition: 0.5;
+    transition: 0.5s;
   }
   &__box {
     width: 150px;
