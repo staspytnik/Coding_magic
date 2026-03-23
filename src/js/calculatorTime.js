@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const calculateButton = document.querySelector('.section__calculatorTime--button')
   const resultDisplay = document.querySelector('.section__calculatorTime--result')
   const secretImage = document.getElementById('secretImage')
+  const errorMessage = document.querySelector('.section__calculatorTime--error')
   const secretNumber = 67
 
   let imageTimeout
@@ -50,11 +51,12 @@ const updateResult = function () {
 
     if (isNaN(totalHours) || totalHours < 0) {
       resultDisplay.textContent = '0 дн. 00:00';
-        alert('Будь ласка введіть коректне додатнє число');
+        errorMessage.textContent = 'Будь ласка введіть коректне додатнє число';
       return
     }
     const time = calculateTime(totalHours)
     resultDisplay.textContent = formatResult(time.days, time.hours, time.minutes)
+    errorMessage.textContent = '';
   }
 
   calculateButton.addEventListener('click', updateResult)

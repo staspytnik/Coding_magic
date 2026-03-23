@@ -3,6 +3,7 @@
 .section__calculatorTime {
 
     &--wrapInput {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -16,7 +17,14 @@
         margin-left: 33px;
         margin-right: 33px;
     }
-
+    &--error {
+        position: absolute;
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        bottom: -35px;
+        left: 350px;
+    }
 
     &--input {
             border: none;
