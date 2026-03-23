@@ -1,0 +1,63 @@
+.rps {
+  padding: 40px;
+  text-align: center;
+
+  &__title {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 104px;
+  }
+
+  &__info {
+    text-align: start;
+  }
+
+  &__choices {
+    display: flex;
+    gap: 38px;
+  }
+
+  &__choice {
+    background: #000;
+    border-radius: 20px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__status {
+    margin: 20px 0;
+    font-weight: 400;
+    font-size: 12px;
+
+    &--win {
+      color: #039900;
+    }
+    &--lose {
+      color: red;
+    }
+    &--draw {
+      color: gray;
+    }
+  }
+
+  &__btn {
+    border-radius: 20px;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    width: 182px;
+    height: 35px;
+    font-weight: 400;
+    font-size: 12px;
+  }
+}
