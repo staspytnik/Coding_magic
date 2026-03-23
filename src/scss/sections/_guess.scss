@@ -19,7 +19,7 @@
     transition: 0.5s;
   }
   &__box {
-    width: 150px;
+    width: 157px;
     height: 35px;
     box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.25);
     border-radius: 20px;
@@ -36,7 +36,7 @@
   &__number {
     border: none;
     background-color: transparent;
-    width: 95px;
+    width: 102px;
     height: 15px;
     padding: 10px;
     outline: none;
@@ -51,6 +51,10 @@
   }
   &__check i {
     color: #fff;
+  }
+
+  &__magnifying-glass {
+    color: white;
   }
 }
 
