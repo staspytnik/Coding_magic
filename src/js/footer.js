@@ -1,6 +1,12 @@
 const footerInput = document.querySelector('.section__footer--subscribe-input');
 const footerButton = document.querySelector('.section__footer--subscribe-button');
 
+// if(!footerInput && !footerButton) {
+//     console.log("ymova vykonalas");
+//     return null;
+
+// }
+
 function isValidEmail(email) {
     email = email.trim();
     
@@ -11,7 +17,6 @@ function isValidEmail(email) {
     }
 }
 
-if (footerInput && footerButton) {
     footerButton.addEventListener('click', (e) => {
         e.preventDefault();
         
@@ -46,4 +51,3 @@ if (footerInput && footerButton) {
             }, 1500);
         }
     });
-}
