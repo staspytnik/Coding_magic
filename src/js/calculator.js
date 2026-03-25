@@ -12,16 +12,13 @@ let firstNum = null
 let secondNum = null
 
 let selectedOperator = null
+let result = null
 
 firstNumInput.addEventListener('change', () => {
   firstNum = Number.parseInt(firstNumInput.value)
 })
 
 secondNumInput.addEventListener('change', () => {
-  if (Number.parseInt(secondNumInput.value) === 0) {
-    resultText.textContent = 'Ділення на нуль!'
-    return
-  }
   secondNum = Number.parseInt(secondNumInput.value)
 })
 
@@ -50,6 +47,24 @@ divideBtn.addEventListener('click', () => {
 })
 
 equalBtn.addEventListener('click', () => {
+  if (Number.parseInt(secondNumInput.value) === 0) {
+    resultText.textContent = 'Ділення на нуль!'
+    return
+  }
+  if (
+    isNaN(firstNum) ||
+    isNaN(secondNum) ||
+    firstNumInput.value === '' ||
+    secondNumInput.value === ''
+  ) {
+    resultText.textContent = 'Введіть числа'
+    return
+  }
+  if (!selectedOperator) {
+    resultText.textContent = 'Виберіть оператор'
+    return
+  }
+
   switch (selectedOperator) {
     case 'add':
       result = firstNum + secondNum
@@ -63,15 +78,6 @@ equalBtn.addEventListener('click', () => {
     case 'divide':
       result = firstNum / secondNum
       break
-  }
-
-  if (isNaN(firstNum) || isNaN(secondNum)) {
-    resultText.textContent = 'Введіть числа'
-    return
-  }
-  if (!selectedOperator) {
-    resultText.textContent = 'Виберіть оператор'
-    return
   }
 
   resultText.textContent = result.toFixed(5)

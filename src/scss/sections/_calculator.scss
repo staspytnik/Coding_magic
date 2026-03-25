@@ -50,10 +50,16 @@ ul {
     height: 15px;
   }
 
+  &__first--number::placeholder,
+  &__second--number::placeholder {
+    font-family: $font-family;
+  }
+
   &__result {
-    width: 77px;
+    width: 134px;
     background: #d7d7d7;
     box-shadow: none;
+    transition: 0.5s;
   }
 
   &__button--equal {
