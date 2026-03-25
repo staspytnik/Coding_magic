@@ -119,7 +119,7 @@ secondButton.addEventListener('click', (e) => {
 const thirdButton = buttons[2]
 thirdButton.addEventListener('click', (e) => {
     scientiestElement.innerHTML = ''
-    const res = [...scientists].sort((a, b) => a.surname.localeCompare(b.surname))
+    const res = [...scientists].sort((a, b) => `${a.name} ${a.surname}`.localeCompare(`${b.name} ${b.surname}`))
     renderScientiestList(res)
 })
 
