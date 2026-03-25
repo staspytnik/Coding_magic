@@ -31,12 +31,12 @@
         line-height: 170%;
         text-align: center;
         color: #000;
+        font-size: 15px;
     }
 
     &__buttons--list {
         list-style-type: none;
         display: grid;
-        // justify-items: center;
         gap: 36px 20px;
         grid-template-columns: repeat(2, 1fr);
     }
