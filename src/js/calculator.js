@@ -80,5 +80,9 @@ equalBtn.addEventListener('click', () => {
       break
   }
 
-  resultText.textContent = result.toFixed(5)
+  if (result % 1 === 0) {
+    resultText.textContent = result
+  } else {
+    resultText.textContent = result.toFixed(2)
+  }
 })
