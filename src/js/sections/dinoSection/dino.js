@@ -119,7 +119,7 @@ const setupGameReset = function () {
     hasAddedEventListenerForRestart = true
 
     setTimeout(() => {
-      window.addEventListener('keyup', reset, { once: true })
+      window.addEventListener('keyup', handleSpaceStart)
       window.addEventListener('touchstart', reset, { once: true })
     }, 1000)
   }
@@ -133,6 +133,16 @@ const reset = function () {
   cactusController.reset()
   score.reset()
   gameSpeed = GAME_SPEED_START
+}
+
+const handleSpaceStart = function (event) {
+  if (event.code !== 'Space') {
+    return
+  }
+
+  event.preventDefault()
+  reset()
+  window.removeEventListener('keyup', handleSpaceStart)
 }
 
 const showStartGameText = function () {
@@ -199,5 +209,5 @@ const gameLoop = function (currentTime) {
 
 requestAnimationFrame(gameLoop)
 
-window.addEventListener('keyup', reset, { once: true })
+window.addEventListener('keyup', handleSpaceStart)
 window.addEventListener('touchstart', reset, { once: true })
