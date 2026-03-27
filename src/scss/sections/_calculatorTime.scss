@@ -1,0 +1,136 @@
+@use '../components/base' as *;
+
+.section__calculatorTime {
+
+    &--wrapInput {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &--line {
+        border: 1.3px dashed black;
+        stroke-width: 1px;
+        height: 0px;
+        width: 100px;
+        margin-left: 33px;
+        margin-right: 33px;
+    }
+    &--error {
+        position: absolute;
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        bottom: -35px;
+        left: 350px;
+    }
+
+    &--input {
+            border: none;
+            border-radius: 100px 0px 0px 100px; 
+            padding-left: 10px;
+            width: 120px;
+            height: 35px;
+            background: #d7d7d7;
+            box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.25);
+            outline: none;
+
+        &::placeholder {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 12px;
+        color: #7e7e7e;
+        }
+    }
+
+    &--button {
+        transition: 0.1s ease-out;
+        height: 37px;
+        width: 35px;
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 0px 100px 100px 0px;
+        padding: 9px 5px;
+        cursor: pointer;
+        box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.25);
+
+        &:hover {
+            background: #1d1d1d;
+        }
+
+        &:active {
+            transform: translateY(1px);
+            box-shadow: 1px 2px 0 0 rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    &--break {
+        height: 1px;
+        background-color: black;
+        margin-top: 36px;
+
+    }
+
+    &--result {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 12px;
+        color: #000;
+    }
+
+}
+
+
+.svg {
+    width: 16px;
+    height: 16px;
+}
+
+.section-title {
+    margin-bottom: 36px;
+}
+
+.secret-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.secret-image img {
+    max-width: 400px;
+    max-height: 400px;
+    display: block;
+}
+
+.secret-image.show {
+    display: block;
+    animation: fadeInOut 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(2)} 
+    50% { opacity: 0; transform: translate(-50%, -50%) scale(1)}
+    100% { opacity: 0; transform: translate(-50%, -50%)}
+}
