@@ -8,7 +8,7 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
- 
+
 }
 
 .section-title {
@@ -27,6 +27,7 @@ body {
 
 .section {
   padding-top: 36px;
+
   .line {
     width: 536px;
     height: 1px;
@@ -38,18 +39,23 @@ body {
 body {
   transition: 0.5s;
 }
+
 .dark-mode .section-title {
   color: #fff;
 }
+
 .dark-mode .line {
   background-color: #fff;
 }
+
 .dark-mode .container {
   background-color: #000;
 }
+
 .dark-mode .section {
   background-color: #000;
 }
+
 .dark-mode .section-title {
   color: #fff;
 }
@@ -57,6 +63,7 @@ body {
 .dark-mode .ourteam__name {
   color: #fff;
 }
+
 .dark-mode .ourteam__desc {
   color: #fff;
 }
@@ -73,10 +80,20 @@ body {
 .dark-mode .section__footer--subInfo {
   color: #fff;
 }
+
 .dark-mode .rps__info {
   color: #fff;
 }
 
 .dark-mode .section__calculatorTime--result {
   color: #fff;
+}
+
+.main-title {
+  font-family: $font-family;
+  text-align: center;
+  margin: 36px 0;
+  font-weight: 400;
+  font-size: 24px;
+  color: #000;
 }
