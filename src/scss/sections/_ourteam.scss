@@ -1,0 +1,93 @@
+@use '../components/base' as *;
+
+.ourteam {
+  text-align: center;
+  font-family: $font-family;
+  font-weight: 400;
+  width: 700px;
+  margin: 0 auto;
+
+  &__title {
+    margin: 0 0 36px 0;
+
+    font-size: 16px;
+    color: #000;
+  }
+
+  &__slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+  }
+
+  &__track {
+    position: relative;
+    width: 250px;
+    height: 248px;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &.active {
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+
+  &__avatar {
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+    background: #d9d9d9;
+  }
+
+  &__photos {
+    border-radius: 20px;
+  }
+
+  &__name {
+    margin: 20px 0;
+
+    font-size: 14px;
+    color: #000;
+  }
+
+  &__desc {
+    margin: 0 0 24px 0;
+
+    font-size: 12px;
+    color: #000;
+  }
+
+  &__dots {
+    span {
+      display: inline-block;
+      background: #d9d9d9;
+      margin: 0 3px;
+      cursor: pointer;
+      border-radius: 3px;
+      width: 18px;
+      height: 3px;
+
+      &.active {
+        width: 30px;
+        height: 3px;
+        background: #797979;
+      }
+    }
+  }
+
+  &__arrow {
+    border: none;
+    background: none;
+    width: 50px;
+    height: 100px;
+    cursor: pointer;
+  }
+}
