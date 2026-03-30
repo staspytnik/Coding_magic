@@ -86,8 +86,10 @@ const scientists = [
 ];
 
 const scientiestElement = document.querySelector('.scientiest__list')
+const buttons = document.querySelectorAll('.scientiest__button')
 
 const renderScientiestList = (scientistsList) => {
+    scientiestElement.innerHTML = ''
     scientistsList.forEach(scientist => {
         const scientistItem = document.createElement('li')
         scientistItem.classList.add('scientiest__item')
@@ -97,78 +99,58 @@ const renderScientiestList = (scientistsList) => {
     })
 }
 
-renderScientiestList(scientists)
+const getScientists = () => scientists.map(scientist => ({ ...scientist }))
 
-const buttons = document.querySelectorAll('.scientiest__button')
+renderScientiestList(getScientists())
 
-const firstButtom = buttons[0]
-firstButtom.addEventListener('click', (e) => {
-    scientiestElement.innerHTML = ''
-    const isNineteenthCentury = scientists.filter(scientist => scientist.born >= 1801 && scientist.born <= 1900)
-    renderScientiestList(isNineteenthCentury)
+const firstButton = buttons[0]
+firstButton.addEventListener('click', () => {
+    renderScientiestList(getScientists().filter(scientist => scientist.born >= 1801 && scientist.born <= 1900))
 })
-
 
 const secondButton = buttons[1]
-secondButton.addEventListener('click', (e) => {
-    const albertBirthYear = scientists.find(scientist => scientist.name === 'Albert' && scientist.surname === 'Einstein')
-    alert(`Альберт Енштейн народився в ${albertBirthYear.born} році`)
+secondButton.addEventListener('click', () => {
+    const albertBirthYear = getScientists().find(scientist => scientist.name === 'Albert' && scientist.surname === 'Einstein')
+    if (albertBirthYear) {
+        alert(`Альберт Енштейн народився в ${albertBirthYear.born} році`)
+    }
 })
-
 
 const thirdButton = buttons[2]
-thirdButton.addEventListener('click', (e) => {
-    scientiestElement.innerHTML = ''
-    const res = [...scientists].sort((a, b) => `${a.name} ${a.surname}`.localeCompare(`${b.name} ${b.surname}`))
-    renderScientiestList(res)
+thirdButton.addEventListener('click', () => {
+    const sorted = getScientists().sort((a, b) => `${a.name} ${a.surname}`.localeCompare(`${b.name} ${b.surname}`))
+    renderScientiestList(sorted)
 })
-
 
 const fourthButton = buttons[3]
-fourthButton.addEventListener('click', (e) => {
-    scientiestElement.innerHTML = ''
-    const surnamesWithC = scientists.filter(scientist => scientist.surname[0].toUpperCase() === 'C')
-    renderScientiestList(surnamesWithC)
+fourthButton.addEventListener('click', () => {
+    renderScientiestList(getScientists().filter(scientist => scientist.surname[0].toUpperCase() === 'C'))
 })
-
 
 const fifthButton = buttons[4]
-fifthButton.addEventListener('click', (e) => {
-    scientiestElement.innerHTML = ''
-    const res = [...scientists].sort((a, b) => (b.dead - b.born) - (a.dead - a.born))
-    renderScientiestList(res)
+fifthButton.addEventListener('click', () => {
+    const sortedByLongevity = getScientists().sort((a, b) => (b.dead - b.born) - (a.dead - a.born))
+    renderScientiestList(sortedByLongevity)
 })
-
 
 const sixthButton = buttons[5]
-sixthButton.addEventListener('click', (e) => {
-    scientiestElement.innerHTML = ''
-    const filteredScientists = scientists.filter(scientist => scientist.name[0] !== 'A')
-    scientists.length = 0
-    scientists.push(...filteredScientists)
-    renderScientiestList(scientists)
+sixthButton.addEventListener('click', () => {
+    renderScientiestList(getScientists().filter(scientist => scientist.name[0] !== 'A'))
 })
 
-
 const seventhButton = buttons[6]
-seventhButton.addEventListener('click', (e) => {
-    const latestBorn = scientists.reduce((prev, current) => {
-        if (prev.born > current.born) {
-            return prev
-        } else {
-            return current
-        }
-    })
+seventhButton.addEventListener('click', () => {
+    const latestBorn = getScientists().reduce((prev, current) => (prev.born > current.born ? prev : current))
     alert(`${latestBorn.name} ${latestBorn.surname} народився найпізніше в ${latestBorn.born} році`)
 })
 
-
 const eighthButton = buttons[7]
-eighthButton.addEventListener('click', (e) => {
-    let longest = scientists[0]
-    let shortest = scientists[0]
+eighthButton.addEventListener('click', () => {
+    const list = getScientists()
+    let longest = list[0]
+    let shortest = list[0]
 
-    scientists.forEach(scientist => {
+    list.forEach(scientist => {
         const yearsLived = scientist.dead - scientist.born
         const longestYears = longest.dead - longest.born
         const shortestYears = shortest.dead - shortest.born
@@ -182,10 +164,7 @@ eighthButton.addEventListener('click', (e) => {
     alert(`Прожив найдовше: ${longest.name} ${longest.surname} (${longestYears} років)\nПрожив найменше: ${shortest.name} ${shortest.surname} (${shortestYears} років)`)
 })
 
-
 const ninthButton = buttons[8]
-ninthButton.addEventListener('click', (e) => {
-    scientiestElement.innerHTML = ''
-    const sameLetter = scientists.filter(scientist => scientist.name[0].toUpperCase() === scientist.surname[0].toUpperCase())
-    renderScientiestList(sameLetter)
+ninthButton.addEventListener('click', () => {
+    renderScientiestList(getScientists().filter(scientist => scientist.name[0].toUpperCase() === scientist.surname[0].toUpperCase()))
 })  
