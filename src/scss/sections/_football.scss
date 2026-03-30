@@ -1,8 +1,14 @@
 .football {
+
+
     &__section {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        .container {
+            width: 700px;
+        }
     }
 
     &__title {
@@ -24,7 +30,7 @@
         overflow: hidden;
         margin: 0 auto;
         cursor: url('../../icons/cursorFootball.png'), auto;
-    }   
+    }
 
     &__ball {
         top: 50px;
