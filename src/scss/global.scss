@@ -1,6 +1,7 @@
 @use './components/variables' as *;
 
 @use './components/base';
+@use './sections/header';
 @use './sections/calculatorTime';
 @use './sections/footer';
 @use './sections/dino';
@@ -8,5 +9,7 @@
 @use './sections/football';
 @use './sections/guess';
 @use './sections/rps';
+@use './sections/choose-scientiest';
 
-@use './sections/choose-scientiest'
+@use './sections/ourteam';
+@use './sections/modal';

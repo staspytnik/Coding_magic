@@ -1,0 +1,181 @@
+.header {
+    display: flex;
+    height: 80px;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: Montserrat Alternates;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin: 0;
+    align-items: center;
+    flex-direction: row;
+    transition: 0.5s;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1090px;
+    }
+
+    &__content {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    &__link {
+        width: 220px;
+        height: 15px;
+        text-decoration: none;
+        color: #000000;
+    }
+
+    &__menu {
+        position: relative;
+    }
+
+    &__arrow {
+        transition: 0.5s;
+    }
+
+    &__dropdown {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-family: Montserrat Alternates;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+
+        &-menu {
+            width: 160px;
+            height: 105px;
+            list-style: none;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-right: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+            border-left: 1px solid #000000;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            top: 20px;
+            left: -25px;
+            transition: 0.5s ease-out;
+        }
+
+        &-link {
+            width: 160px;
+            height: 35px;
+            background: none;
+            font-family: Montserrat Alternates;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            border: none;
+
+            &:hover {
+                background: #f1f1f1;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        top: -10px;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        list-style: none;
+        gap: 50px;
+    }
+
+    &__switch {
+        display: flex;
+        padding: 0;
+        border: none;
+        background: none;
+        appearance: none;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+    }
+
+    &__checkbox {
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+        &:checked + .header__slider {
+            background: #7a7a7a;
+        }
+        &:checked + .header__slider::before {
+            background-image: url(/images/header/moon.svg);
+            transform: translateX(20px);
+            background-color: black;
+            border: 0.5px solid white;
+        }
+    }
+
+    &__slider {
+        display: flex;
+        width: 42px;
+        height: 22px;
+        border-radius: 11px;
+        background-color: #7a7a7a;
+        align-items: center;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border: 0.5px solid #000000;
+            background-image: url(/images/header/sun.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 14px 14px;
+            border-radius: 100%;
+            background-color: white;
+            transition: 0.5s;
+        }
+    }
+
+    &__settings {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 185px;
+        height: 20px;
+    }
+}
+
+.dark-mode {
+    transition: 0.5s;
+
+    .header__dropdown-link:hover {
+        background: #2b2b2b;
+    }
+
+    background-color: #000000;
+
+    .header {
+        background-color: #000000;
+    }
+}
