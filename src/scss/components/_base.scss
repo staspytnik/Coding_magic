@@ -3,6 +3,14 @@
 $font-family: 'Montserrat Alternates', sans-serif;
 $second-family: 'Inter', sans-serif;
 
+body {
+  background-image: url('/images/example/Background/background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+ 
+}
+
 .section-title {
   font-family: $font-family;
   font-weight: 400;
