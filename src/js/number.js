@@ -1,5 +1,4 @@
 export function findMaxNumber() {
-  // Твои переменные (все правильно!)
   const firstNum = document.querySelector('.number__input--first')
   const secondNum = document.querySelector('.number__input--second')
   const thirdNum = document.querySelector('.number__input--third')
