@@ -1,6 +1,7 @@
 @use './components/variables' as *;
 
 @use './components/base';
+@use './sections/header';
 @use './sections/calculatorTime';
 @use './sections/footer';
 @use './sections/dino';
@@ -10,3 +11,4 @@
 @use './sections/rps';
 
 @use './sections/ourteam';
+@use './sections/modal';
