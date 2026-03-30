@@ -3,6 +3,14 @@
 $font-family: 'Montserrat Alternates', sans-serif;
 $second-family: 'Inter', sans-serif;
 
+body {
+  background-image: url('/images/example/Background/background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+ 
+}
+
 .section-title {
   font-family: $font-family;
   font-weight: 400;
@@ -29,4 +37,46 @@ $second-family: 'Inter', sans-serif;
 
 body {
   transition: 0.5s;
+}
+.dark-mode .section-title {
+  color: #fff;
+}
+.dark-mode .line {
+  background-color: #fff;
+}
+.dark-mode .container {
+  background-color: #000;
+}
+.dark-mode .section {
+  background-color: #000;
+}
+.dark-mode .section-title {
+  color: #fff;
+}
+
+.dark-mode .ourteam__name {
+  color: #fff;
+}
+.dark-mode .ourteam__desc {
+  color: #fff;
+}
+
+
+.dark-mode .ourteam__arrow {
+  background-color: #fff;
+}
+
+.dark-mode .section__footer--list-item-link {
+  color: #fff;
+}
+
+.dark-mode .section__footer--subInfo {
+  color: #fff;
+}
+.dark-mode .rps__info {
+  color: #fff;
+}
+
+.dark-mode .section__calculatorTime--result {
+  color: #fff;
 }

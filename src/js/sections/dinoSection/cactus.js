@@ -22,7 +22,7 @@ export default class Cactus {
       sprite.x < this.x + this.width / adjustBy &&
       sprite.x + sprite.width / adjustBy > this.x &&
       sprite.y < this.y + this.height / adjustBy &&
-      sprite.y + sprite.y / adjustBy > this.y
+      sprite.y + sprite.height / adjustBy > this.y
     ) {
       return true
     } else {

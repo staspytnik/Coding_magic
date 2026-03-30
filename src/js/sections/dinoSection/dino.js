@@ -20,9 +20,9 @@ const GROUND_HEIGHT = 24
 const GROUND_AND_CACTUS_SPEED = 0.5
 
 const CACTUS_CONFIG = [
-  { width: 48 / 1.5, height: 120 / 1.5, Image: '/images/dino-img/cactus_1.png' },
-  { width: 98 / 1.5, height: 120 / 1.5, Image: '/images/dino-img/cactus_2.png' },
-  { width: 68 / 1.5, height: 90 / 1.5, Image: '/images/dino-img/cactus_3.png' },
+  { width: 48 / 1.5, height: 120 / 1.5, image: '/images/dino-img/cactus_1.png' },
+  { width: 98 / 1.5, height: 120 / 1.5, image: '/images/dino-img/cactus_2.png' },
+  { width: 68 / 1.5, height: 90 / 1.5, image: '/images/dino-img/cactus_3.png' },
 ]
 
 let player = null
@@ -65,7 +65,7 @@ const createSprites = function () {
 
   const cactusImages = CACTUS_CONFIG.map((cactus) => {
     const image = new Image()
-    image.src = cactus.Image
+    image.src = cactus.image
     return {
       image: image,
       width: cactus.width * scaleRatio,
@@ -119,7 +119,7 @@ const setupGameReset = function () {
     hasAddedEventListenerForRestart = true
 
     setTimeout(() => {
-      window.addEventListener('keyup', reset, { once: true })
+      window.addEventListener('keyup', handleSpaceStart)
       window.addEventListener('touchstart', reset, { once: true })
     }, 1000)
   }
@@ -133,6 +133,34 @@ const reset = function () {
   cactusController.reset()
   score.reset()
   gameSpeed = GAME_SPEED_START
+}
+
+const isEditableTarget = function (event) {
+  const target = event.target
+  if (!target) {
+    return false
+  }
+
+  const tagName = target.tagName
+  return tagName === 'INPUT' || tagName === 'TEXTAREA' || target.isContentEditable
+}
+
+const preventSpaceScroll = function (event) {
+  if (event.code !== 'Space' || isEditableTarget(event)) {
+    return
+  }
+
+  event.preventDefault()
+}
+
+const handleSpaceStart = function (event) {
+  if (event.code !== 'Space' || isEditableTarget(event)) {
+    return
+  }
+
+  event.preventDefault()
+  reset()
+  window.removeEventListener('keyup', handleSpaceStart)
 }
 
 const showStartGameText = function () {
@@ -199,5 +227,6 @@ const gameLoop = function (currentTime) {
 
 requestAnimationFrame(gameLoop)
 
-window.addEventListener('keyup', reset, { once: true })
+window.addEventListener('keydown', preventSpaceScroll)
+window.addEventListener('keyup', handleSpaceStart)
 window.addEventListener('touchstart', reset, { once: true })
