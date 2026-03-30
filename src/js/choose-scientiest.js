@@ -86,7 +86,8 @@ const scientists = [
 ];
 
 const scientiestElement = document.querySelector('.scientiest__list')
-const buttons = document.querySelectorAll('.scientiest__button')
+
+const getScientists = () => scientists.map(scientist => ({ ...scientist }))
 
 const renderScientiestList = (scientistsList) => {
     scientiestElement.innerHTML = ''
@@ -99,53 +100,64 @@ const renderScientiestList = (scientistsList) => {
     })
 }
 
-const getScientists = () => scientists.map(scientist => ({ ...scientist }))
-
 renderScientiestList(getScientists())
 
-const firstButton = buttons[0]
-firstButton.addEventListener('click', () => {
+const buttons = document.querySelectorAll('.scientiest__button')
+
+const firstButtom = buttons[0]
+firstButtom.addEventListener('click', (e) => {
     renderScientiestList(getScientists().filter(scientist => scientist.born >= 1801 && scientist.born <= 1900))
 })
 
+
 const secondButton = buttons[1]
-secondButton.addEventListener('click', () => {
+secondButton.addEventListener('click', (e) => {
     const albertBirthYear = getScientists().find(scientist => scientist.name === 'Albert' && scientist.surname === 'Einstein')
-    if (albertBirthYear) {
-        alert(`Альберт Енштейн народився в ${albertBirthYear.born} році`)
-    }
+    renderScientiestList([albertBirthYear])
 })
+
 
 const thirdButton = buttons[2]
-thirdButton.addEventListener('click', () => {
-    const sorted = getScientists().sort((a, b) => `${a.name} ${a.surname}`.localeCompare(`${b.name} ${b.surname}`))
-    renderScientiestList(sorted)
+thirdButton.addEventListener('click', (e) => {
+    const res = getScientists().sort((a, b) => `${a.name} ${a.surname}`.localeCompare(`${b.name} ${b.surname}`))
+    renderScientiestList(res)
 })
 
+
 const fourthButton = buttons[3]
-fourthButton.addEventListener('click', () => {
+fourthButton.addEventListener('click', (e) => {
     renderScientiestList(getScientists().filter(scientist => scientist.surname[0].toUpperCase() === 'C'))
 })
 
+
 const fifthButton = buttons[4]
-fifthButton.addEventListener('click', () => {
-    const sortedByLongevity = getScientists().sort((a, b) => (b.dead - b.born) - (a.dead - a.born))
-    renderScientiestList(sortedByLongevity)
+fifthButton.addEventListener('click', (e) => {
+    const res = getScientists().sort((a, b) => (b.dead - b.born) - (a.dead - a.born))
+    renderScientiestList(res)
 })
 
+
 const sixthButton = buttons[5]
-sixthButton.addEventListener('click', () => {
+sixthButton.addEventListener('click', (e) => {
     renderScientiestList(getScientists().filter(scientist => scientist.name[0] !== 'A'))
 })
 
+
 const seventhButton = buttons[6]
-seventhButton.addEventListener('click', () => {
-    const latestBorn = getScientists().reduce((prev, current) => (prev.born > current.born ? prev : current))
-    alert(`${latestBorn.name} ${latestBorn.surname} народився найпізніше в ${latestBorn.born} році`)
+seventhButton.addEventListener('click', (e) => {
+    const latestBorn = getScientists().reduce((prev, current) => {
+        if (prev.born > current.born) {
+            return prev
+        } else {
+            return current
+        }
+    })
+    renderScientiestList([latestBorn])
 })
 
+
 const eighthButton = buttons[7]
-eighthButton.addEventListener('click', () => {
+eighthButton.addEventListener('click', (e) => {
     const list = getScientists()
     let longest = list[0]
     let shortest = list[0]
@@ -159,12 +171,11 @@ eighthButton.addEventListener('click', () => {
         if (yearsLived < shortestYears) shortest = scientist
     })
 
-    const longestYears = longest.dead - longest.born
-    const shortestYears = shortest.dead - shortest.born
-    alert(`Прожив найдовше: ${longest.name} ${longest.surname} (${longestYears} років)\nПрожив найменше: ${shortest.name} ${shortest.surname} (${shortestYears} років)`)
+    renderScientiestList([longest, shortest])
 })
 
+
 const ninthButton = buttons[8]
-ninthButton.addEventListener('click', () => {
+ninthButton.addEventListener('click', (e) => {
     renderScientiestList(getScientists().filter(scientist => scientist.name[0].toUpperCase() === scientist.surname[0].toUpperCase()))
 })  
