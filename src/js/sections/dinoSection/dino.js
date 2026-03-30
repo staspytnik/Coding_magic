@@ -135,8 +135,26 @@ const reset = function () {
   gameSpeed = GAME_SPEED_START
 }
 
+const isEditableTarget = function (event) {
+  const target = event.target
+  if (!target) {
+    return false
+  }
+
+  const tagName = target.tagName
+  return tagName === 'INPUT' || tagName === 'TEXTAREA' || target.isContentEditable
+}
+
+const preventSpaceScroll = function (event) {
+  if (event.code !== 'Space' || isEditableTarget(event)) {
+    return
+  }
+
+  event.preventDefault()
+}
+
 const handleSpaceStart = function (event) {
-  if (event.code !== 'Space') {
+  if (event.code !== 'Space' || isEditableTarget(event)) {
     return
   }
 
@@ -209,5 +227,6 @@ const gameLoop = function (currentTime) {
 
 requestAnimationFrame(gameLoop)
 
+window.addEventListener('keydown', preventSpaceScroll)
 window.addEventListener('keyup', handleSpaceStart)
 window.addEventListener('touchstart', reset, { once: true })
