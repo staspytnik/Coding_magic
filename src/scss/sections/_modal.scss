@@ -11,6 +11,7 @@
     z-index: 9999;
 
     &__content {
+        position: relative;
         display: flex;
         background-color: #fff;
         padding: 20px;
@@ -23,12 +24,44 @@
         justify-content: space-around;
     }
 
+    &__icon1 {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 154px;
+        left: 41px;
+    }
+
+    &__icon2 {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 230px;
+        left: 85px;
+    }
+
+    &__icon3 {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 154px;
+        left: 535px;
+    }
+
+    &__icon4 {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 230px;
+        left: 491px;
+    }
+
     &__description {
         display: flex;
         align-items: center;
         margin: 0;
-        margin-bottom: 20px;
-        width: 392px;
+        margin-bottom: 30px;
+        width: 393px;
         height: 60px;
         font-family: Inter;
         font-weight: 400;
@@ -93,6 +126,7 @@
     }
 
     &__thanks {
+        position: relative;
         display: flex;
         justify-items: flex-end;
         align-items: center;
@@ -104,11 +138,44 @@
 
         &-message {
             justify-self: center;
+            margin-top: 75px;
             font-family: inter;
             font-weight: 400;
             font-size: 20px;
             text-align: center;
             color: #000;
+        }
+
+        &__icon1 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 69px;
+            left: 43px;
+        }
+
+        &__icon2 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 230px;
+            left: 87px;
+        }
+
+        &__icon3 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 69px;
+            left: 421px;
+        }
+
+        &__icon4 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 230px;
+            left: 377px;
         }
 
         &.active {
