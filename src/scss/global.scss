@@ -1,5 +1,4 @@
-$font-family: 'Montserrat Alternates', sans-serif;
-$second-family: 'Inter', sans-serif;
+@use './components/variables' as *;
 
 @use './components/base';
 @use './sections/calculatorTime';
