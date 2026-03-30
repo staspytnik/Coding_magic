@@ -1,3 +1,5 @@
+@use './components/variables' as *;
+
 @use './components/base';
 @use './sections/calculatorTime';
 @use './sections/footer';
@@ -5,3 +7,4 @@
 @use './sections/calculator';
 @use './sections/football';
 @use './sections/guess';
+@use './sections/rps';
