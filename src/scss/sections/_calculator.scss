@@ -19,6 +19,11 @@ ul {
     margin: 0;
   }
 
+  &__div {
+    display: flex;
+    justify-content: center;
+  }
+
   &__list {
     display: flex;
     align-items: center;
