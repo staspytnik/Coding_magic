@@ -7,7 +7,7 @@ body {
   background-image: url('/images/example/Background/background.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment:scroll ;
 
 }
 
@@ -23,6 +23,7 @@ body {
   width: 1090px;
   max-width: 100%;
   margin: 0 auto;
+  background-color: white;
 }
 
 .section {
